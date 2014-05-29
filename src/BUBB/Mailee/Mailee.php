@@ -69,10 +69,9 @@ class Mailee
 
 		$url = 'https://mailee.p.mashape.com/'.$entity.'?api_key='.$mailee_key.'&subdomain='.$mailee_subdomain.'';
 
-		$response = \Unirest::$verb($url,
-	  	['X-Mashape-Authorization' => $mashape_key],
-	  	$params
-	  );
+		$response = \Unirest::$verb($url, ['X-Mashape-Authorization' => $mashape_key],
+			$params
+		);
 
 		return $response->body;
 
