@@ -1,0 +1,20 @@
+{
+  "name": "bubb/mailee",
+  "description": "Mailee API for Laravel",
+  "keywords": ["api", "mailee", "email", "laravel"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Lucas Colette",
+      "email": "lucas@bubb.com.br"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "mashape/unirest-php": "dev-master"
+  },
+  "autoload": {
+    "psr-0": {"BUBB\\Mailee": "src"}
+  },  
+  "minimum-stability": "dev"
+}
