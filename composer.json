@@ -16,5 +16,5 @@
   "autoload": {
     "psr-0": {"BUBB\\Mailee": "src"}
   },  
-  "minimum-stability": "dev-master"
+  "minimum-stability": "dev"
 }
