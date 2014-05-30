@@ -5,6 +5,19 @@ class Mailee
 
 	protected $contact;
 
+	protected $mashape_key;
+
+	protected $mailee_key;
+
+	protected $mailee_domain;
+
+	public function __construct()
+	{
+		$this->mashape_key = \Config::get('mailee::mashape_key');
+		$this->mailee_key = \Config::get('mailee::mailee_key');
+		$this->mailee_domain = \Config::get('mailee::mailee_domain');
+	}
+
 	/**
 	 * createContact
 	 * Create a new contact
@@ -52,6 +65,42 @@ class Mailee
 	}
 
 	/**
+	 * setConfig
+	 * Set the configs on the fly
+	 */
+	public function setConfig($config)
+	{
+		$this->mailee_key = $config['mailee_key'];
+		$this->mailee_domain = $config['mailee_domain'];
+
+		return $this;
+	}
+
+	/**
+	 * getMashapeKey
+	 */
+	public function getMashapeKey()
+	{
+		return $this->mashape_key;
+	}
+
+	/**
+	 * getMaileeKey
+	 */
+	public function getMaileeKey()
+	{
+		return $this->mailee_key;
+	}
+
+	/**
+	 * getMaileeDomain
+	 */
+	public function getMaileeDomain()
+	{
+		return $this->mailee_domain;
+	}
+
+	/**
 	 * createResponse
 	 * Call to Mashape API
 	 * 
@@ -63,9 +112,9 @@ class Mailee
 	private function createResponse($verb, $entity, $params)
 	{
 
-		$mashape_key = \Config::get('mailee::mashape_key');
-		$mailee_key = \Config::get('mailee::mailee_key');
-		$mailee_subdomain = \Config::get('mailee::mailee_domain');
+		$mashape_key = $this->getMashapeKey();
+		$mailee_key = $this->getMaileeKey();
+		$mailee_subdomain = $this->getMaileeDomain();
 
 		$url = 'https://mailee.p.mashape.com/'.$entity.'?api_key='.$mailee_key.'&subdomain='.$mailee_subdomain.'';
 
