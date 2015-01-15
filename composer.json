@@ -11,7 +11,7 @@
   ],
   "require": {
     "php": ">=5.4.0",
-    "mashape/unirest-php": "dev-master"
+    "mashape/unirest-php": "1.2.1"
   },
   "autoload": {
     "psr-0": {"BUBB\\Mailee": "src"}
