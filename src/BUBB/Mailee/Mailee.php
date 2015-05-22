@@ -3,7 +3,7 @@
 class Mailee
 {
 
-	protected $contact;
+	protected $contact = null;
 
 	protected $mashape_key;
 
@@ -58,7 +58,9 @@ class Mailee
 	{
 
 		$params = ['list' => $list];
-		$this->createResponse('put', 'contacts/'.$this->getContact()->id.'/list_subscribe', $params);
+
+		if ( !is_null($this->getContact()) )
+			$this->createResponse('put', 'contacts/'.$this->getContact()->id.'/list_subscribe', $params);
 
 		return $this;
 
